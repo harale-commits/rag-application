@@ -6,7 +6,7 @@ import { AIMessageChunk, MessageContent } from '@langchain/core/messages';
 export class ChatService {
   model = new AzureChatOpenAI({
     model: 'gpt-4o',
-    temperature: 0,
+    temperature: 1,
     maxTokens: undefined,
     maxRetries: 2,
     azureOpenAIApiKey: process.env.AZURE_OPENAI_API_KEY, // In Node.js defaults to process.env.AZURE_OPENAI_API_KEY
@@ -21,7 +21,11 @@ export class ChatService {
     const aiMsg = await this.model.invoke([
       [
         'system',
-        'You are a helpful assistant that uses the chain of thought. You will have multiples tasks and perform that tasks one by one. First translate the task in french, then translate it to hindi, then English, then Marathi, then Gujarati and give all the answers  in bullet points and also add new line after each bullet point',
+        'You are a helpful assistant that uses the chain of thought. You will have multiples tasks and perform that tasks one by one. First translate the task in french, then translate it to hindi, then Japanese, then Marathi, then Gujarati and give all the answers  in bullet points and also add new line after each bullet point ##' +
+          '###formating instructions###' +
+          'add bullet points after each task' +
+          'add a new line after each task' +
+          'assume the response we are getting we have to show it in browser page so use html tags',
       ],
       ['human', query],
     ]);
