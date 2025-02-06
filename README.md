@@ -58,6 +58,16 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## Env file configuration
+AZURE_OPENAI_API_INSTANCE_NAME=your_instance_name
+<br/>
+AZURE_OPENAI_API_DEPLOYMENT_NAME=your_deployment_name
+<br/>
+AZURE_OPENAI_API_KEY=your_api_key
+<br/>
+AZURE_OPENAI_API_VERSION=your_api_version
+
+
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
